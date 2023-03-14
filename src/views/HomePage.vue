@@ -1,56 +1,67 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
+    <ion-header>
       <ion-toolbar>
-        <ion-title>Blank</ion-title>
+        <ion-title>
+          JSON Generator
+        </ion-title>
       </ion-toolbar>
     </ion-header>
-
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
-
-      <div id="container">
-        <strong>Ready to create an app?</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-      </div>
+    <ion-content class="ion-padding">
+      <ion-list>
+        <ion-item v-for="(item, index) in jsonData" :key="index">
+          <ion-thumbnail slot="start">
+            <ion-img :src="item.photo" :alt="item.text"></ion-img>
+          </ion-thumbnail>
+          <ion-label>
+            <h2>Item {{ item.id }}</h2>
+            <p>{{ item.text }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
     </ion-content>
   </ion-page>
 </template>
 
-<script setup lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+<script>
+import {
+  IonContent,
+  IonHeader,
+  IonItem,
+  IonImg,
+  IonLabel,
+  IonList,
+  IonPage,
+  IonThumbnail,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/vue"
+import { defineComponent } from 'vue';
+import useJson from '@/composables/useJson'
+
+export default defineComponent({
+  name: 'HomePage',
+  components: {
+    IonContent,
+    IonHeader,
+    IonItem,
+    IonImg,
+    IonLabel,
+    IonList,
+    IonPage,
+    IonThumbnail,
+    IonTitle,
+    IonToolbar,
+  },
+
+  setup() {
+    
+    const { generateJson } = useJson()
+    const jsonData = generateJson()
+
+    return {
+      jsonData,    
+    }
+  }
+});
 </script>
-
-<style scoped>
-#container {
-  text-align: center;
-  
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  
-  color: #8c8c8c;
-  
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-</style>
