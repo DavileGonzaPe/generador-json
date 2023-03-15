@@ -6,10 +6,14 @@
           JSON Generator
         </ion-title>
       </ion-toolbar>
+      <ion-toolbar>
+        <ion-searchbar v-model='searchTerm' placeholder="Search"></ion-searchbar>
+      </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
+      
       <ion-list>
-        <ion-item v-for="(item, index) in jsonData" :key="index">
+        <ion-item v-for="(item, index) in filteredList()" :key="index">
           <ion-thumbnail slot="start">
             <ion-img :src="item.photo" :alt="item.text"></ion-img>
           </ion-thumbnail>
@@ -32,11 +36,12 @@ import {
   IonLabel,
   IonList,
   IonPage,
+  IonSearchbar,
   IonThumbnail,
   IonTitle,
   IonToolbar,
 } from "@ionic/vue"
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import useJson from '@/composables/useJson'
 
 export default defineComponent({
@@ -49,6 +54,7 @@ export default defineComponent({
     IonLabel,
     IonList,
     IonPage,
+    IonSearchbar,
     IonThumbnail,
     IonTitle,
     IonToolbar,
@@ -57,10 +63,18 @@ export default defineComponent({
   setup() {
     
     const { generateJson } = useJson()
+    const searchTerm = ref('');
     const jsonData = generateJson()
 
+    function filteredList() {
+      return jsonData.filter((photo) => {
+        return photo.text.toLowerCase().includes(searchTerm.value.toLowerCase()) || photo.id.includes(searchTerm.value)
+      })
+    }
+
     return {
-      jsonData,    
+      searchTerm,
+      filteredList,
     }
   }
 });

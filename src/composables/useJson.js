@@ -4,8 +4,8 @@ const useJson = () => {
     const generateJson = () => {
         const data = [];
         for (let i = 1; i <= 4000; i++) {
-          const id = i
-          const photoUrl = `https://i.picsum.photos/id/${id}/500/500.jpg`
+          const id = i.toString()
+          const photoUrl = `https://picsum.photos/id/${id}/500/500.jpg`
           const text = loremIpsum({
             count: 1,
             units: 'sentences',
