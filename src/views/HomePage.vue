@@ -11,9 +11,14 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      
-      <ion-list>
-        <ion-item v-for="(item, index) in filteredList()" :key="index">
+      <RecycleScroller
+        class="scroller"
+        :items=filteredList()
+        item-size="70"
+        key-field="id"
+        v-slot="{ item }"
+      >
+        <ion-item>
           <ion-thumbnail slot="start">
             <ion-img :src="item.photo" :alt="item.text"></ion-img>
           </ion-thumbnail>
@@ -22,7 +27,7 @@
             <p>{{ item.text }}</p>
           </ion-label>
         </ion-item>
-      </ion-list>
+      </RecycleScroller>
     </ion-content>
   </ion-page>
 </template>
@@ -34,7 +39,7 @@ import {
   IonItem,
   IonImg,
   IonLabel,
-  IonList,
+  // IonList,
   IonPage,
   IonSearchbar,
   IonThumbnail,
@@ -52,7 +57,7 @@ export default defineComponent({
     IonItem,
     IonImg,
     IonLabel,
-    IonList,
+    // IonList,
     IonPage,
     IonSearchbar,
     IonThumbnail,
@@ -66,7 +71,13 @@ export default defineComponent({
     const searchTerm = ref('');
     const jsonData = generateJson()
 
-    function filteredList() {
+    // function filteredList() {
+    //   return jsonData.filter((photo) => {
+    //     return photo.text.toLowerCase().includes(searchTerm.value.toLowerCase()) || photo.id.includes(searchTerm.value)
+    //   })
+    // }
+
+    const filteredList = () => {
       return jsonData.filter((photo) => {
         return photo.text.toLowerCase().includes(searchTerm.value.toLowerCase()) || photo.id.includes(searchTerm.value)
       })
@@ -79,3 +90,12 @@ export default defineComponent({
   }
 });
 </script>
+
+<style scoped>
+.scroller {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+</style>
