@@ -34,8 +34,14 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
-  ],
+    "tests/unit/example.spec.js",
+    "src/router/index.js", 
+    "src/shims-vue.d.js", 
+    "src/main.js",
+    "tests/**/*.tsx", 
+    "src/router/index.js", 
+    "src/shims-vue.d.js", 
+    "src/main.js", "tests/unit/example.spec.js"  ],
   "exclude": [
     "node_modules"
   ]
