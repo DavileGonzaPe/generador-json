@@ -14,7 +14,7 @@
       <RecycleScroller
         class="scroller"
         :items=filteredList()
-        item-size="70"
+        :item-size="70"
         key-field="id"
         v-slot="{ item }"
       >
@@ -39,7 +39,6 @@ import {
   IonItem,
   IonImg,
   IonLabel,
-  // IonList,
   IonPage,
   IonSearchbar,
   IonThumbnail,
@@ -57,7 +56,6 @@ export default defineComponent({
     IonItem,
     IonImg,
     IonLabel,
-    // IonList,
     IonPage,
     IonSearchbar,
     IonThumbnail,
@@ -70,12 +68,6 @@ export default defineComponent({
     const { generateJson } = useJson()
     const searchTerm = ref('');
     const jsonData = generateJson()
-
-    // function filteredList() {
-    //   return jsonData.filter((photo) => {
-    //     return photo.text.toLowerCase().includes(searchTerm.value.toLowerCase()) || photo.id.includes(searchTerm.value)
-    //   })
-    // }
 
     const filteredList = () => {
       return jsonData.filter((photo) => {
