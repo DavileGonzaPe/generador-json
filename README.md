@@ -4,7 +4,7 @@ Una aplicación web que genera un json de 4000 elementos y los muestra en pantal
 
 Instalación
 
-Clona el repositorio: git clone https://github.com/tu-nombre-de-usuario/generador-json.git
+Clona el repositorio: git clone https://github.com/DavileGonzaPe/generador-json.git
 Navega hasta el directorio del proyecto: cd generador-json
 Instala las dependencias: npm install
 Inicia el servidor de desarrollo: npm ionic serve o npr run serve
