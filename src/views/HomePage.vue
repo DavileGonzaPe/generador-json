@@ -47,6 +47,7 @@ import {
 } from "@ionic/vue"
 import { defineComponent, ref } from 'vue';
 import useJson from '@/composables/useJson'
+import { RecycleScroller } from 'vue-virtual-scroller';
 
 export default defineComponent({
   name: 'HomePage',
@@ -61,6 +62,7 @@ export default defineComponent({
     IonThumbnail,
     IonTitle,
     IonToolbar,
+    RecycleScroller,
   },
 
   setup() {
