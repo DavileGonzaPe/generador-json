@@ -4,11 +4,15 @@ Una aplicación web que genera un json de 4000 elementos y los muestra en pantal
 
 Instalación
 
-Clona el repositorio: git clone https://github.com/DavileGonzaPe/generador-json.git
-Navega hasta el directorio del proyecto: cd generador-json
-Instala las dependencias: npm install
-Inicia el servidor de desarrollo: npm ionic serve o npr run serve
-Abre tu navegador web y ve a http://localhost:8080 para ver la aplicación.
+1.- Clona el repositorio: git clone https://github.com/DavileGonzaPe/generador-json.git
+
+2.- Navega hasta el directorio del proyecto: cd generador-json
+
+3.- Instala las dependencias: npm install
+
+4.- Inicia el servidor de desarrollo: npm ionic serve o npr run serve
+
+5.-Abre tu navegador web y ve a http://localhost:8080 para ver la aplicación.
 
 Uso
 
@@ -19,8 +23,11 @@ Para buscar en la lista, escribe un término de búsqueda en la barra de búsque
 Tecnologías Utilizadas
 
 Vue.js
+
 Ionic Framework
+
 vue-virtual-scroller
+
 lorem-ipsum
 
 Créditos
